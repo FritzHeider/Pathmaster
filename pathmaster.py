@@ -1,24 +1,13 @@
-import tkinter as tk
-from tkinter import filedialog, messagebox, simpledialog
 import os
-import shutil
-import threading
-import json
-import logging
-
-# Setup logging
-logging.basicConfig(filename='path_master.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+import tkinter as tk
+from path_master_extras import DirectoryContentPanel  # Import the new class
 
 class PathMasterApp:
     def __init__(self, master):
         self.master = master
         master.title("Path Master")
-        
-        # Load settings
-        self.settings = self.load_settings()
-
-        # GUI setup
         self.setup_gui()
+        self.content_panel = DirectoryContentPanel(master) 
 
     def setup_gui(self):
         # Input Section
